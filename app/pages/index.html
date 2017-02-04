@@ -18,12 +18,7 @@
     
     <ui-view></ui-view>
     
-    <!-- jQuery -->
-    <script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous">
-    </script>
+
     
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -31,8 +26,7 @@
     <!-- UI Router -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     
-    <!-- local js file -->
-    <script src="/scripts/app.js"></script>
+
 
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
@@ -50,6 +44,16 @@
       };
       firebase.initializeApp(config);
     </script>
+    
+    <!-- UI Bootstrap -->
+    <script src="/scripts/ui-bootstrap-2.2.0.js"></script>
+    
+    <!-- local js files -->
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/LandingCtrl.js"></script>
+    <script src="/scripts/services/Tasks.js"></script>
+    
+
     
     
 </body>

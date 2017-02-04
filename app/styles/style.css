@@ -26,6 +26,10 @@ h1 {
   width: 100%;
 }
 
+.list-container {
+    margin-top: 20px;
+}
+
 .list p {
   background: rgba(255,255,255,0.95);
   box-shadow: 0 2px 2px rgba(0,0,0,.15);
@@ -53,6 +57,7 @@ h1 {
 .list p .glyphicon-remove:hover {
   color: #ed1c24;
 }
+
 
 form.form {
   color: #473e39; 
