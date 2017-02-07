@@ -11,11 +11,27 @@
             $scope.tasks.$add({
                 title: $scope.newTaskText,
                 favorite: false,
-                completed: false,
-                created: new Date()
+                status: 'active',
+                created: firebase.database.ServerValue.TIMESTAMP,
+                isExpired: false 
             });
             
             $scope.newTaskText = '';
+        };
+        
+        $scope.elapsedTime = function(task) {
+          var daysLeft = (7 - (Date.now() - task.created)/86400000).toPrecision(2);
+          if (daysLeft > 0) {
+              return daysLeft;
+          } else {
+              taskRef.child(task.$id).update({isExpired: true});
+              taskRef.child(task.$id).update({status: 'expired'});
+              return 0;
+          }
+        };
+        
+        $scope.completeTask = function(task) {
+          taskRef.child(task.$id).update({status: 'complete'});  
         };
     }
     
