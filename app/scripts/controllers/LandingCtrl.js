@@ -3,35 +3,29 @@
         this.tasks = Tasks.all;
         $scope = this;
         
-        $scope.addTask = function() {
-            if (!$scope.newTaskText) {
-                return;
-            }
-            console.log("addTask function was called");
-            $scope.tasks.$add({
-                title: $scope.newTaskText,
-                favorite: false,
-                status: 'active',
-                created: firebase.database.ServerValue.TIMESTAMP,
-                isExpired: false 
-            });
-            
-            $scope.newTaskText = '';
-        };
+        this.sendTask = function() {
+            Tasks.addTask(this.newTaskText);
+            this.newTaskText = '';
+        }
         
         $scope.elapsedTime = function(task) {
-          var daysLeft = (7 - (Date.now() - task.created)/86400000).toPrecision(2);
+            //daysLeft = # of milliseconds in seve days minus the difference in milliseconds from the date a task was created to now, rounded to two decimal points
+          var daysLeft = ((604800000 - (Date.now() - task.created))/86400000).toPrecision(2);
           if (daysLeft > 0) {
               return daysLeft;
           } else {
-              taskRef.child(task.$id).update({isExpired: true});
-              taskRef.child(task.$id).update({status: 'expired'});
+              Tasks.ref.child(task.$id).update({isExpired: true});
+              Tasks.ref.child(task.$id).update({status: 'expired'});
               return 0;
           }
         };
         
         $scope.completeTask = function(task) {
-          taskRef.child(task.$id).update({status: 'complete'});  
+            console.log('completeTask called!');
+            console.log(task);
+            if (task.status) {
+                Tasks.ref.child(task.$id).update({status: 'complete'});
+            }
         };
     }
     
