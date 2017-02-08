@@ -1,5 +1,5 @@
 (function() {
-    function LandingCtrl(Tasks) {
+    function ExpiredCtrl(Tasks) {
         this.tasks = Tasks.all;
         $scope = this;
         
@@ -21,5 +21,5 @@
     
     angular
         .module('Blocitoff')
-        .controller('LandingCtrl', ['Tasks', LandingCtrl]);
+        .controller('ExpiredCtrl', ['Tasks', ExpiredCtrl]);
 })();

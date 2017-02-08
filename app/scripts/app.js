@@ -1,4 +1,4 @@
-(function() {
+(function () {
     function config($stateProvider, $locationProvider) {
         
         $locationProvider
@@ -11,6 +11,16 @@
             .state('landing', {
                 url: '/',
                 templateUrl: '/templates/landing.html'
+            })
+            .state('expired', {
+                url: '/expired',
+                controller: 'ExpiredCtrl as expired',
+                templateUrl: '/templates/expired.html'
+            })
+            .state('completed', {
+                url: '/completed',
+                controller: 'CompletedCtrl as completed',
+                templateUrl: '/templates/completed.html'
             });
     }
     

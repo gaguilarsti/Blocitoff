@@ -16,7 +16,7 @@
                        ng-model="task.status"
                        ng-click="landing.completeTask(task)">
                 <!-- <i class="glyphicon glyphicon-star" ng-model="task.favorite"></i> need to get this working-->
-                <span class="task-title">{{ task.title }} | {{ landing.elapsedTime(task) }} days left </span> 
+                <span class="task-title">{{ task.title }} | Days left: {{ landing.elapsedTime(task) }} </span> 
                 
                 <i class="glyphicon glyphicon-remove" ng-click="landing.tasks.$remove(task)"></i>
             </p>

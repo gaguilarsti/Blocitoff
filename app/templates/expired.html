@@ -1,0 +1,29 @@
+<div class="main">
+    
+    <form class="form" ng-submit="sendTask()">
+        <div class="form-container">
+          <input id="todo" type="text" class="form-input" placeholder="Add a task here" ng-model="expired.newTaskText">
+        </div>
+
+        <button type="submit" class="btn">+</button>
+    </form>
+    
+    <div class="list-container">
+        <div class="list" ng-repeat="task in expired.tasks" ng-hide="!task.isExpired || task.status === 'active'">
+            <p>
+                <input 
+                       type="checkbox"
+                       ng-model="task.status"
+                       ng-click="expired.completeTask(task)">
+                <!-- <i class="glyphicon glyphicon-star" ng-model="task.favorite"></i> need to get this working-->
+                <span class="task-title">{{ task.title }} | Days left: {{ expired.elapsedTime(task) }} </span> 
+                
+                <i class="glyphicon glyphicon-remove" ng-click="expired.tasks.$remove(task)"></i>
+            </p>
+            
+        </div>
+    </div>
+
+
+    
+</div>
