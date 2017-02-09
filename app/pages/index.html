@@ -10,11 +10,24 @@
 </head>
 <body>
     <!-- navigation bar -->
-    <nav class="navbar"> 
-    <div class="header">
-      <h1>Blocitoff</h1>
+     <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h1>Blocitoff</h1>
+          </div>
+          <div class="pull-right">
+            
+            <ul class="nav nav-pills">
+              <li><a ui-sref="landing">Active</a></li>
+              <li><a ui-sref="expired">Expired</a></li>
+              <li><a ui-sref="completed">Completed</a></li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
     </div>
-    </nav>
     
     <ui-view></ui-view>
     

@@ -1,29 +1,32 @@
+
+
 <div class="main" ng-controller="LandingCtrl as landing">
-    
-    <form class="form" ng-submit="landing.sendTask()">
-        <div class="form-container">
-          <input id="todo" type="text" class="form-input" placeholder="Add a task here" ng-model="landing.newTaskText">
+
+
+        <form class="form" ng-submit="landing.sendTask()">
+            <div class="form-container">
+              <input id="todo" type="text" class="form-input" placeholder="Add a task here" ng-model="landing.newTaskText">
+            </div>
+
+            <button type="submit" class="btn">+</button>
+        </form>
+
+        <div class="list-container">
+            <div class="list" ng-repeat="task in landing.tasks" ng-hide="task.isExpired || task.status === 'complete'">
+                <p>
+                    <input 
+                           type="checkbox"
+                           ng-model="task.status"
+                           ng-click="landing.completeTask(task)">
+                    <!-- <i class="glyphicon glyphicon-star" ng-model="task.favorite"></i> need to get this working-->
+                    <span class="task-title">{{ task.title }} | Days left: {{ landing.elapsedTime(task) }} </span> 
+
+                    <i class="glyphicon glyphicon-remove" ng-click="landing.tasks.$remove(task)"></i>
+                </p>
+
+            </div>
         </div>
 
-        <button type="submit" class="btn">+</button>
-    </form>
-    
-    <div class="list-container">
-        <div class="list" ng-repeat="task in landing.tasks" ng-hide="task.isExpired || task.status === 'complete'">
-            <p>
-                <input 
-                       type="checkbox"
-                       ng-model="task.status"
-                       ng-click="landing.completeTask(task)">
-                <!-- <i class="glyphicon glyphicon-star" ng-model="task.favorite"></i> need to get this working-->
-                <span class="task-title">{{ task.title }} | Days left: {{ landing.elapsedTime(task) }} </span> 
-                
-                <i class="glyphicon glyphicon-remove" ng-click="landing.tasks.$remove(task)"></i>
-            </p>
-            
-        </div>
-    </div>
-
-
+    </div>    
     
 </div>
