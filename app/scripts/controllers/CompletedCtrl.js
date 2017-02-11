@@ -6,6 +6,7 @@
         this.sendTask = function () {
             Tasks.addTask(this.newTaskText);
             this.newTaskText = '';
+            this.newTaskPriority = '';
         };
         
         this.elapsedTime = function (task) {
@@ -13,8 +14,9 @@
             return Tasks.elapsedTime(task);
         };
         
-        this.completeTask = function (task) {
-            Tasks.completeTask(task);
+        this.unCompleteTask = function (task) {
+            console.log('unComplete function is being called!');
+            Tasks.unCompleteTask(task);
         };
         
     }

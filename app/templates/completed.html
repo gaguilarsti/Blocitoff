@@ -20,11 +20,11 @@
                 <input 
                        type="checkbox"
                        ng-model="task.status"
-                       ng-click="expired.completeTask(task)">
+                       ng-click="completed.unCompleteTask(task)">
                 <!-- <i class="glyphicon glyphicon-star" ng-model="task.favorite"></i> need to get this working-->
                 <span class="task-title">{{ task.title }} | {{ completed.elapsedTime(task) }} | Priority: {{ task.priority }} </span> 
                 
-                <i class="glyphicon glyphicon-remove" ng-click="expired.tasks.$remove(task)"></i>
+                <i class="glyphicon glyphicon-remove" ng-click="completed.tasks.$remove(task)"></i>
             </p>
             
         </div>

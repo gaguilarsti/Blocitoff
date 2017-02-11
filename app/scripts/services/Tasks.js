@@ -37,16 +37,23 @@
         };
         
         var completeTask = function (task) {
-                if (task.status) {
-                    ref.child(task.$id).update({status: 'complete'});
-                }
-            };
+            if (task.status) {
+                ref.child(task.$id).update({status: 'complete'});
+            }
+        };
+        
+        var unCompleteTask = function (task) {
+            if (task.status) {
+                ref.child(task.$id).update({status: 'active'});
+            }
+        };
         
         return {
             all: tasks,
             addTask: addTask,
             elapsedTime: elapsedTime,
-            completeTask: completeTask
+            completeTask: completeTask,
+            unCompleteTask: unCompleteTask
         };
     }
 
