@@ -3,9 +3,10 @@
         var ref = firebase.database().ref().child("Tasks");
         var tasks = $firebaseArray(ref);
 
-        var addTask = function (newTaskText) {
+        var addTask = function (newTaskText, newTaskPriority) {
             var newTask = {
                 title: newTaskText,
+                priority: newTaskPriority,
                 favorite: false,
                 status: 'active',
                 created: firebase.database.ServerValue.TIMESTAMP,

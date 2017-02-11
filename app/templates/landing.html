@@ -4,11 +4,18 @@
 
 
         <form class="form" ng-submit="landing.sendTask()">
-            <div class="form-container">
-              <input id="todo" type="text" class="form-input" placeholder="Add a task here" ng-model="landing.newTaskText">
+            <div class="form-container input-group">
+                <input id="todo" type="text" class="form-input" placeholder="Add a task here" ng-model="landing.newTaskText">
+                <select class="form-control priority-levels btn-group show-menu-arrow" data-live-search="true" ng-model="landing.newTaskPriority" title="Select Priority Level">
+                    <option value="" disabled selected>Priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <button type="submit" class="btn">+</button>
             </div>
 
-            <button type="submit" class="btn">+</button>
+            
         </form>
 
         <div class="list-container">
@@ -19,7 +26,7 @@
                            ng-model="task.status"
                            ng-click="landing.completeTask(task)">
                     <!-- <i class="glyphicon glyphicon-star" ng-model="task.favorite"></i> need to get this working-->
-                    <span class="task-title">{{ task.title }} | Days left: {{ landing.elapsedTime(task) }} </span> 
+                    <span class="task-title">{{ task.title }} | Days left: {{ landing.elapsedTime(task) }} | Priority: {{ task.priority }}</span> 
 
                     <i class="glyphicon glyphicon-remove" ng-click="landing.tasks.$remove(task)"></i>
                 </p>

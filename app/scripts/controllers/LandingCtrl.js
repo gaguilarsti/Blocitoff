@@ -1,11 +1,12 @@
-(function() {
+(function () {
     function LandingCtrl(Tasks) {
         this.tasks = Tasks.all;
         $scope = this;
         
         this.sendTask = function () {
-            Tasks.addTask(this.newTaskText);
+            Tasks.addTask(this.newTaskText, this.newTaskPriority);
             this.newTaskText = '';
+            this.newTaskPriority = '';
         };
         
         this.elapsedTime = function (task) {

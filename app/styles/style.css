@@ -79,11 +79,11 @@ form.form {
   height: 60px;
   margin: 0 auto 5px;
   padding: 0;
-  width: 380px;
+  width: 480px;
 }
 
 .form-container {
-  max-width: 380px;
+  max-width: 600px;
 }
 
 .form input {
@@ -99,6 +99,25 @@ form.form {
   padding: 0 20px;
   width: 315px;
 }
+
+.form .priority-levels {
+    display: inline;
+    height: 60px;
+    width: 90px;
+    background: #49C8A5;
+    border: none;
+    box-shadow: 0 2px 2px rgba(0,0,0,.15);
+    color: whitesmoke;
+    float: left;
+    font-family: 'Arvo', serif;
+    font-size: 16px;
+    margin-right: 5px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    
+}
+
+
 
 .form input:focus {
   background: rgba(255,255,255,.95);

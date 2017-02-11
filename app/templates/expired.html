@@ -2,7 +2,13 @@
     
     <form class="form" ng-submit="sendTask()">
         <div class="form-container">
-          <input id="todo" type="text" class="form-input" placeholder="Add a task here" ng-model="expired.newTaskText">
+            <input id="todo" type="text" class="form-input" placeholder="Add a task here" ng-model="expired.newTaskText">
+            <select class="form-control priority-levels btn-group show-menu-arrow" data-live-search="true" ng-model="landing.newTaskPriority" title="Select Priority Level">
+                    <option value="" disabled selected>Priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+            </select>
         </div>
 
         <button type="submit" class="btn">+</button>
@@ -16,7 +22,7 @@
                        ng-model="task.status"
                        ng-click="expired.completeTask(task)">
                 <!-- <i class="glyphicon glyphicon-star" ng-model="task.favorite"></i> need to get this working-->
-                <span class="task-title">{{ task.title }} | Days left: {{ expired.elapsedTime(task) }} </span> 
+                <span class="task-title">{{ task.title }} | Days left: {{ expired.elapsedTime(task) }} | Priority: {{ task.priority }} </span> 
                 
                 <i class="glyphicon glyphicon-remove" ng-click="expired.tasks.$remove(task)"></i>
             </p>
